@@ -1,0 +1,21 @@
+name: CONFIRM THAT 🐶 IS CUTE THAN 😼
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+
+env:
+  FACT: "🐶 IS CUTE THAN 😼"
+
+jobs:
+
+  assembly_x64:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: install NASM
+      run: sudo apt install -y nasm
+    - name: ASSEMBLY DOG
+      run: diff <(echo $FACT) <(make -s -C src/assembly)
