@@ -19,3 +19,10 @@ jobs:
       run: sudo apt install -y nasm
     - name: ASSEMBLY DOG
       run: diff <(echo $FACT) <(make -s -C src/assembly)
+
+  c:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: C DOG
+      run: diff <(echo $FACT) <(make -s -C src/c)
