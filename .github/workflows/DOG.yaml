@@ -35,3 +35,12 @@ jobs:
       run: make -C src/rust lint
     - name: Rust DOG
       run: diff <(echo $FACT) <(make -s -C src/rust)
+
+  dog:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: lint
+      run: make -C src/dog lint
+    - name: Rust DOG
+      run: diff <(echo $FACT) <(make -s -C src/dog)
